@@ -1,5 +1,12 @@
-import { TodoWrapper } from "./todo-wrapper";
+import "../../App.css";
+import TodoList from "./TodoList";
 
 export const DeployTodo = () => {
-  return <TodoWrapper />;
+  return (
+    <div className="todo-app">
+      <TodoList />
+    </div>
+  );
 };
+
+export default DeployTodo;
