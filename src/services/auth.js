@@ -1,4 +1,4 @@
-import { checkResponse } from "@/utils/responses";
+import { checkResponse } from "@/utils/services";
 
 const { VITE_API_URL: baseUrl } = import.meta.env;
 

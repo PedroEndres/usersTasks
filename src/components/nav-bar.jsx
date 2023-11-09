@@ -23,7 +23,7 @@ export const NavBar = () => {
               </Link>
             </div>
             <div>
-              <Link to="/tasks" className="hover:opacity-70">
+              <Link to="/posts" className="hover:opacity-70">
                 Tasks
               </Link>
             </div>

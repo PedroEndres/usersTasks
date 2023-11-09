@@ -1,5 +1,3 @@
-import { useAuthStore } from "@/store/auth";
-
 export const checkResponse = (response) => {
   if (!response.ok) {
     throw new Error(response.statusText);
@@ -9,6 +7,6 @@ export const checkResponse = (response) => {
 };
 
 export const getAuthHeader = () => {
-  const { token } = useAuthStore.getState();
-  return `Bearer ${token}`;
+  const authorizationHeader = `Bearer ${localStorage.getItem("token")}`;
+  return authorizationHeader;
 };

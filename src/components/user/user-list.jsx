@@ -40,19 +40,29 @@ export const UsersList = () => {
   if (isError) toast.error("Error getting users");
 
   return (
-    <Card className="w-full max-w-xl m-auto">
-      <Title>
+    <Card className="w-full max-w-xl m-auto card-container">
+      <Title className="table-container">
         Users
         <Badge className="ml-2">{users?.length}</Badge>
       </Title>
       <Table className="mt-5">
         <TableHead>
           <TableRow>
-            <TableHeaderCell className="text-center">Id</TableHeaderCell>
-            <TableHeaderCell className="text-center">Name</TableHeaderCell>
-            <TableHeaderCell className="text-center">Username</TableHeaderCell>
             {roles.includes(ROLES.ADMIN || ROLES.MOD) && (
-              <TableHeaderCell className="text-center">Actions</TableHeaderCell>
+              <TableHeaderCell className="text-center table-container">
+                Id
+              </TableHeaderCell>
+            )}
+            <TableHeaderCell className="text-center table-container">
+              Name
+            </TableHeaderCell>
+            <TableHeaderCell className="text-center table-container">
+              Username
+            </TableHeaderCell>
+            {roles.includes(ROLES.ADMIN || ROLES.MOD) && (
+              <TableHeaderCell className="text-center table-container">
+                Actions
+              </TableHeaderCell>
             )}
           </TableRow>
         </TableHead>
@@ -74,9 +84,17 @@ export const UsersList = () => {
           )}
           {users?.map((user) => (
             <TableRow key={user.id}>
-              <TableCell className="text-center">{user.id}</TableCell>
-              <TableCell className="text-center">{user.name}</TableCell>
-              <TableCell className="text-center">{user.userName}</TableCell>
+              {roles.includes(ROLES.ADMIN || ROLES.MOD) && (
+                <TableCell className="text-center table-container">
+                  {user.id}
+                </TableCell>
+              )}
+              <TableCell className="text-center table-container">
+                {user.name}
+              </TableCell>
+              <TableCell className="text-center table-container">
+                {user.userName}
+              </TableCell>
               {roles.includes(ROLES.ADMIN || ROLES.MOD) && (
                 <TableCell className="text-center">
                   <button

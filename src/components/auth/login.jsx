@@ -8,11 +8,8 @@ import { useMutation } from "@tanstack/react-query";
 import { Button, Card, Text, TextInput, Title } from "@tremor/react";
 import { useContext, useState } from "react";
 import { toast } from "sonner";
-import { CreateUser } from "../user/create-user";
 
 export const Login = () => {
-  const [mostrarComponente, setMostrarComponente] = useState(false);
-
   const [errors, setErrors] = useState({});
 
   const { handleLogin, handleError } = useContext(AuthContext);
@@ -29,10 +26,6 @@ export const Login = () => {
       toast.error("Invalid credentials");
     },
   });
-
-  const mostrarOcultarComponente = () => {
-    setMostrarComponente(!mostrarComponente);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -89,12 +82,8 @@ export const Login = () => {
           <Button className="w-full px-3" icon={LoginIcon}>
             Login
           </Button>
-          <button onClick={mostrarOcultarComponente}>Crear Cuenta</button>
-      {mostrarComponente &&  <CreateUser/>  }
         </form>
       </Card>
-      
-      
     </>
   );
 };

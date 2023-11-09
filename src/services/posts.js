@@ -2,8 +2,8 @@ import { checkResponse, getAuthHeader } from "@/utils/services";
 
 const { VITE_API_URL: baseUrl } = import.meta.env;
 
-export const getUsers = async () => {
-  const response = await fetch(`${baseUrl}/users`, {
+export const getPosts = async () => {
+  const response = await fetch(`${baseUrl}/posts`, {
     headers: {
       Authorization: getAuthHeader(),
     },
@@ -11,8 +11,8 @@ export const getUsers = async () => {
   return checkResponse(response);
 };
 
-export const getUser = async (id) => {
-  const response = await fetch(`${baseUrl}/users/${id}`, {
+export const getPost = async (id) => {
+  const response = await fetch(`${baseUrl}/posts/${id}`, {
     headers: {
       Authorization: getAuthHeader(),
     },
@@ -20,32 +20,32 @@ export const getUser = async (id) => {
   return checkResponse(response);
 };
 
-export const createUser = async (user) => {
-  const response = await fetch(`${baseUrl}/users`, {
+export const createPost = async (postData) => {
+  const response = await fetch(`${baseUrl}/posts`, {
     method: "POST",
     headers: {
       Authorization: getAuthHeader(),
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(postData),
   });
   return checkResponse(response);
 };
 
-export const updateUser = async (id, user) => {
-  const response = await fetch(`${baseUrl}/users/${id}`, {
+export const updatePost = async (Id, postData) => {
+  const response = await fetch(`${baseUrl}/posts/${Id}`, {
     method: "PUT",
     headers: {
       Authorization: getAuthHeader(),
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(postData),
   });
   return checkResponse(response);
 };
 
-export const deleteUser = async (id) => {
-  const response = await fetch(`${baseUrl}/users/${id}`, {
+export const deletePost = async (id) => {
+  const response = await fetch(`${baseUrl}/posts/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: getAuthHeader(),
